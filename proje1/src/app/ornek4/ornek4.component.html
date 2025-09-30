@@ -1,0 +1,53 @@
+<div>
+    <form [formGroup]="form">
+        {{ form.controls['username'].errors | json }}
+        <br />
+        <div class="mb-3">
+            <label for="kAdi" class="form-label">Kullanıcı Adı:</label>
+            <input type="text" #adi formControlName="username" class="form-control"
+                [class.is-invalid]="form.controls['username'].touched && form.controls['username'].invalid" id="kAdi">
+            @if (form.controls['username'].touched && form.controls['username'].errors) {
+            @if (form.controls['username'].errors['required']) {
+            <small class="text-danger">Kullanıcı Adı Boş Bırakılamaz</small>
+            }
+            @if (form.controls['username'].errors['minlength']) {
+            <small class="text-danger">Kullanıcı Adı En Az 5 Karakter Olmalıdır</small>
+            }
+            @if (form.controls['username'].errors['invalidUsername']) {
+            <small class="text-danger">{{ form.controls['username'].errors['invalidUsername'].message }}</small>
+            }
+            }
+        </div>
+        <div class="mb-3">
+            <label for="sifre" class="form-label">Şifre:</label>
+            <input type="password" formControlName="password" class="form-control" id="sifre">
+            @if (form.controls['password'].touched && form.controls['password'].errors) {
+            @if (form.controls['password'].errors['required']) {
+            <div>
+                <small class="text-danger">Şifre Boş Bırakılamaz</small>
+            </div>
+            }
+            @if (form.controls['password'].errors['minlength']) {
+            <div>
+                <small class="text-danger">Şifre En Az 8 Karakter Olmalıdır</small>
+            </div>
+            }
+            @if (form.controls['password'].errors['maxlength']) {
+            <div>
+                <small class="text-danger">Şifre En Fazla 16 Karakter Olmalıdır</small>
+            </div>
+            }
+            @if (form.controls['password'].errors['pattern']) {
+            <div>
+                <small class="text-danger">Şifre Sadece Harf ve Rakam İçermelidir</small>
+            </div>
+            }
+            }
+        </div>
+
+        <button class="btn btn-primary" (click)="giris()" [disabled]="!form.valid">Giriş Yap</button>
+        <button class="btn btn-primary ms-2" (click)="reset()">Reset</button>
+        <button class="btn btn-primary ms-2" (click)="setVal()">Set Values</button>
+        <button class="btn btn-primary ms-2" (click)="passTemizle()">Password Temizle</button>
+    </form>
+</div>

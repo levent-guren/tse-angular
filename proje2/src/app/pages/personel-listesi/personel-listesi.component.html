@@ -1,0 +1,16 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Sicil</th>
+            <th>Adı</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (personel of personeller; track personel.sicil) {
+        <tr (click)="personelDetayaGit(personel)">
+            <td>{{ personel.sicil }}</td>
+            <td>{{ personel.adi }}</td>
+        </tr>
+        }
+    </tbody>
+</table>

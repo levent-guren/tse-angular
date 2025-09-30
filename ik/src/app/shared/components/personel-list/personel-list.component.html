@@ -1,0 +1,26 @@
+@if(personelListesi==undefined) {
+Personel Listesi Boş
+} @else {
+<div class="table-responsive mt-3" style="overflow-y: auto; height: 35rem;">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Sicil</th>
+                <th>Adı</th>
+                <th>Soyadı</th>
+                <th>Resim</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (personel of personelListesi; track personel.id) {
+            <tr>
+                <td>{{personel.id}}</td>
+                <td>{{personel.adi}}</td>
+                <td>{{personel.soyadi}}</td>
+                <td><img class="resim" src="{{personel.resim}}" /></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+}

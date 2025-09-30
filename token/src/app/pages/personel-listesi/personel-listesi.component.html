@@ -1,0 +1,16 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Adı</th>
+            <th>Soyadı</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (personel of personelListesi; track $index) {
+        <tr>
+            <td>{{personel.adi}}</td>
+            <td>{{personel.soyadi}}</td>
+        </tr>
+        }
+    </tbody>
+</table>

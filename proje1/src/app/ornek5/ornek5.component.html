@@ -1,0 +1,31 @@
+<div><input #text1 class="form-control" type="text" /></div>
+<div><button class="btn btn-primary mt-2" (click)="txt = text1.value">Buton 1</button></div>
+<div>Değer: {{ txt }}</div>
+@for (i of isimler;track $index; let sira = $index;let ilk = $first; let son = $last;let cift = $even; let tek = $odd) {
+<div [class.koyu]="tek">{{sira}} - Merhaba {{ i }}</div>
+}
+@if (txt.length > 3) {
+<div class="mt-2 alert alert-success">3'ten Büyük</div>
+} @else {
+<div class="mt-2 alert alert-danger">3'ten Küçük veya Eşit</div>
+}
+@switch (txt.length) {
+@case (0) {
+<div class="mt-2 alert alert-secondary">0</div>
+}
+@case (1) {
+<div class="mt-2 alert alert-secondary">1</div>
+}
+@default {
+<div class="mt-2 alert alert-secondary">Diğer</div>
+}
+}
+<div>---- Pipe Örnekleri ------------</div>
+<div>{{ 'merhaba dünya' | uppercase }}</div>
+<div>{{ 'MERHABA DÜNYA' | lowercase }}</div>
+<div>{{ 'MERHABA DÜNYA' | titlecase }}</div>
+<div>{{ 12.34 | currency }}</div>
+<div>{{ 12.345678 | currency : 'TRY' : 'symbol' : '4.3-5'}}</div>
+<div>{{ tarih | date : 'dd/MM/yyyy HH:mm:ss'}}</div>
+<div>{{ 'Merhaba Dünya' | slice:4:10}}</div>
+<div>{{ 'Merhaba Dünya' | kisaltici : 6 }}</div>

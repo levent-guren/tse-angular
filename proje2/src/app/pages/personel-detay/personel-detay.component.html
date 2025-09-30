@@ -1,0 +1,24 @@
+@if (personel==null) {
+Personel Bilgisi Bulunamadı.
+} @else {
+<table class="mb-3">
+    <tr>
+        <th>Sicil: </th>
+        <td>{{ personel.sicil }} </td>
+    </tr>
+    <tr>
+        <th>Adı: </th>
+        <td>{{ personel.adi }} </td>
+    </tr>
+    <tr>
+        <th>Soyadı: </th>
+        <td>{{ personel.soyadi }} </td>
+    </tr>
+    <tr>
+        <th>E-Posta: </th>
+        <td>{{ personel.email }} </td>
+    </tr>
+</table>
+<button class="btn btn-primary" (click)="oncekiPersonel()">Önceki</button>
+<button class="btn btn-primary ms-2" (click)="sonrakiPersonel()">Sonraki</button>
+}
